@@ -1,5 +1,5 @@
 import { call, put } from "redux-saga/effects";
-import { getShow as getShowAPI } from "../../api/show";
+import { getShow as getShowAPI, getShows as getShowsAPI } from "../../api/show";
 import { setShow } from "../../actions/shows";
 
 export function* getShow(action) {
@@ -8,3 +8,10 @@ export function* getShow(action) {
     yield put(setShow(show));
   }
 }
+
+export function* getShows(action) {
+    if (action.payload) {
+      const show = yield call(getShowsAPI, action.payload);
+      yield put(setShow(show));
+    }
+  }
