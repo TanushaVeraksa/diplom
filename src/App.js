@@ -16,17 +16,16 @@ const useStyles = makeStyles({
   },
 })
 
+const routes = [
+  {path: "/", name: "Home", component: Home},
+  {path: "/about", name: About.name, component: About},
+  {path: "/contacts", name: Contacts.name, component: Contacts},
+  {path: "/join-us", name: JoinUs.name, component: JoinUs},
+  {path: "/movie-reviews", name: MovieReviews.name, component: MovieReviews},
+  ];
+
 function App() {
-
   const classes = useStyles();
-
-  const routes = [
-    {path: "/", name: Home.name, component: Home},
-    {path: "/about", name: About.name, component: About},
-    {path: "/contacts", name: Contacts.name, component: Contacts},
-    {path: "/join-us", name: JoinUs.name, component: JoinUs},
-    {path: "/movie-reviews", name: MovieReviews.name, component: MovieReviews},
-    ];
 
   return (
     <div className={classes.root}>
