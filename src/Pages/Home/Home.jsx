@@ -2,15 +2,35 @@ import React, {useEffect} from 'react';
 import { connect } from "react-redux";
 import { getShows } from "../../actions/shows";
 import ShowsGallery from "./components/ShowsGallery";
+import { makeStyles } from "@material-ui/styles";
+import {Button} from "@material-ui/core";
 
+const useStyles = makeStyles({
+    root: {
+       display: "flex",
+       flexDirection: "column",
+       justifyContent: "center", 
+    }
+})
 
 function Home(props) {
-
+const classes = useStyles()
 useEffect(() => {
     props.getShows(1);
 }, []);
 
-   return <div>Home <ShowsGallery/></div>
+const handlePageChange = page => e => {
+   props.getShows(page);
+}
+
+   return <div className={classes.root}><ShowsGallery/> 
+   <div>
+   {
+   [1,2,3,4,5].map(number=><Button 
+      onClick = {handlePageChange(number)}>{number}</Button>)
+   }
+      </div>
+   </div>
 }
 
 const mapStateToProps = (state) => ({}) 

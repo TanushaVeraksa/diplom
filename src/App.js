@@ -5,7 +5,7 @@ import {Paper} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import background from "./images/background.jpg";
 
-import {Home, About, Contacts, MovieReviews, JoinUs} from "./Pages";
+import {Home, About, Contacts, MovieReviews, JoinUs, Show} from "./Pages";
 import Header from "./components/Header";
 
 
@@ -33,8 +33,12 @@ function App() {
         <Paper>
           <Switch>
             {routes.map((elem) => (
-              <Route path={elem.path} exact component = {elem.component} key={elem.name}/>
+              <Route 
+              path={elem.path} 
+              exact component = {elem.component} 
+              key={elem.name}/>
             ))}
+            <Route path = {"/shows/:id"} exact component = {Show}></Route>
             <Route >404 not found</Route>
           </Switch>
       </Paper>

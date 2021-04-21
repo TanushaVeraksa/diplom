@@ -5,13 +5,15 @@ import { Grid } from "@material-ui/core";
 
 
 function ShowsGallery(props) {
-   console.log(props.shows);
     return (
         <Grid container>
           {props.shows ? props.shows.map(show => 
 			 	<Grid item lg = {3} md = {4} sm={6} xs={12}>
-				 	<ShowCard src={show.image.medium} id = {show.id} />
-			   </Grid>
+				 	<ShowCard 
+						src={show.image ? show.image.medium : ""} 
+						id = {show.id} 
+						key={show.id} />
+			   </Grid> 
 			 ) : null}
         </Grid>
     )
