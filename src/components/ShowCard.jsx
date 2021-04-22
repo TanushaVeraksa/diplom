@@ -9,6 +9,7 @@ const useStyles = makeStyles(theme => ({
          width: 255,
          height: 295,
          marginBottom: 10,
+         overflow: "hidden",
        }
       if(size === "sm") {
          return styles
@@ -19,19 +20,27 @@ const useStyles = makeStyles(theme => ({
          return styles;
       }
     },
+      image: {
+         transition:".3s ease all",
+         "&:hover": {
+            transform: "scale(1.1)",
+       },
+    },
 }))
 
 function ShowCard(props) {
     const {size = "sm", src, alt, id, title, description} = props;
-    const classes = useStyles({size})
+    const classes = useStyles({size});
     return (
+      <>
         <div className = {classes.showCard}>
             <Link to={`/shows/${id}`}>
-                <img src={src} alt={alt ? alt : "no-alt"}/>
+                <img src={src} alt={alt ? alt : "no-alt"} className = {classes.image}/>
             </Link>
-            <h3>{title}</h3>
-            <p>{description}</p>
         </div>
+         <h3>{title}</h3>
+         <p>{description}</p>
+      </>
     )
 }
 
