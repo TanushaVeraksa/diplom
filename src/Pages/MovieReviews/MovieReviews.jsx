@@ -31,6 +31,7 @@ function MovieReviews() {
         variant="outlined"
         onChange={handleChange}
         shape="rounded"
+        color="secondary"
       />
     </div>
   );
