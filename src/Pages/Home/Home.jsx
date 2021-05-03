@@ -4,8 +4,6 @@ import { getShows } from "../../actions/shows";
 import {getPremieres} from "../../actions/premieres";
 import ShowsGallery from "../../components/ShowsGallery";
 import { makeStyles } from "@material-ui/styles";
-// import {Button} from "@material-ui/core";
-// import {arrayFromNumber} from "./utils";
 import Premieres from "./components/Premieres";
 
 const useStyles = makeStyles({
@@ -16,7 +14,7 @@ const useStyles = makeStyles({
    }
 })
 
-// const pages = 10;
+
 
 function Home(props) {
 const classes = useStyles()
@@ -25,19 +23,9 @@ useEffect(() => {
    props.getPremieres();
 }, [props]);
 
-// const handlePageChange = page => e => {
-//    props.getShows(page);
-// }
 
    return <div className={classes.root}>
       <ShowsGallery/> 
-   {/* <div>
-      {arrayFromNumber(pages)
-         .map((page) => page + 1 )
-         .map((number) => (
-         <Button onClick = {handlePageChange(number)}>{number}</Button>
-      ))}
-      </div> */}
       <Premieres/>
    </div>
 }
@@ -50,3 +38,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(Home);
+
+

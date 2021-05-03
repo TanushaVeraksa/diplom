@@ -9,6 +9,7 @@ import ShowCard from "../../components/ShowCard";
 function Show(props) {
    useEffect(() => {
       props.getShow(props.match.params.id)
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [props.match.params.id])
    console.log(props);
    return (

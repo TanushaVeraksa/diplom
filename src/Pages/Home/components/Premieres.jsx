@@ -10,7 +10,7 @@ export const Premieres = (props) => {
     return (
         <Grid container> 
         { props.premieres.map(premier=> (
-            <Grid item xs = {12} md={4}>
+            <Grid item xs = {12} md={4}> 
         <MoviePremiere 
             key={premier.premiereMonth} 
             premiereMonth = {premier.premiereMonth} 

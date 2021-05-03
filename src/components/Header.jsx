@@ -39,7 +39,7 @@ Header.protoTypes = {
         PropTypes.shape({
         path: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
-        component: PropTypes.func,
+        component: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     })
   ),
 }
