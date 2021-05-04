@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getShows } from "../../actions/shows";
 import {getPremieres} from "../../actions/premieres";
 import ShowsGallery from "../../components/ShowsGallery";
@@ -18,25 +18,21 @@ const useStyles = makeStyles({
 
 function Home(props) {
 const classes = useStyles()
+const dispatch = useDispatch();
+const shows = useSelector((state) => state.show.shows);
 useEffect(() => {
-   props.getShows(1);
-   props.getPremieres();
-}, [props]);
+   dispatch(getShows(1));
+   dispatch(getPremieres());
+}, [dispatch]);
 
 
    return <div className={classes.root}>
-      <ShowsGallery/> 
+      <ShowsGallery shows={shows} cardSize={"sm"}/> 
       <Premieres/>
    </div>
 }
 
-const mapStateToProps = (state) => ({}) 
 
-const mapDispatchToProps = (dispatch) => ({
-   getShows: (page) => dispatch(getShows(page)),
-   getPremieres: () => dispatch(getPremieres()),
-});
-
-export default connect(mapStateToProps,mapDispatchToProps)(Home);
+export default (Home);
 
 

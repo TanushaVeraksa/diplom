@@ -5,18 +5,24 @@ import ShowsGallery from "../../components/ShowsGallery";
 import Pagination from "@material-ui/lab/Pagination";
 import { Select, MenuItem } from "@material-ui/core";
 
+const ALL_GENDER = "All";
+
+
 function MovieReviews() {
   const dispatch = useDispatch();
   const [from, setFrom] = useState(0);
   const [count, setCount] = useState(10);
   const [genres, setGenres] = useState([]);
-  const [selectedGenre, setSelectedGenre] = useState("");
-  const shows = useSelector((state) => state.show.shows);
+  const [selectedGenre, setSelectedGenre] = useState(ALL_GENDER);
+  const {shows, searchedShows} = useSelector((state) => state.show);
 
   const showPerPage = 8;
 
-  useEffect(() => {
+  useEffect(()=>{
     dispatch(getShows(1));
+  }, [dispatch])
+
+  useEffect(() => {
     if (shows) {
       const genresSet = new Set(shows.flatMap((show) => show.genres));
       setGenres([...genresSet.values()]);
@@ -24,17 +30,19 @@ function MovieReviews() {
     }
   }, [dispatch, shows]);
 
+
+
   useEffect(() => {
-    if (!selectedGenre) {
-      setSelectedGenre(genres[0]);
-    }
     if (shows) {
-      const filteredShows = shows.filter((show) =>
-        show.genres.includes(selectedGenre)
+      if(selectedGenre !== ALL_GENDER) {
+        const filteredShows = shows.filter((show) =>show.genres.includes(selectedGenre)
       );
       dispatch(setSearchedShows(filteredShows));
+      } else {
+        dispatch(setSearchedShows(shows));
+      }
     }
-  }, [genres, selectedGenre, shows]);
+  }, [dispatch, genres, selectedGenre, shows]);
 
   const handleChange = (event, page) => {
     setFrom((page - 1) * showPerPage);
@@ -46,7 +54,7 @@ function MovieReviews() {
 
   return (
     <div>
-      <Select value={selectedGenre} displayEmpty onChange={handleSelectChange}>
+      <Select value={selectedGenre}  onChange={handleSelectChange}>
         <MenuItem value="All">All</MenuItem>
         {genres.map((genre) => (
           <MenuItem key={genre} value={genre}>
@@ -54,7 +62,7 @@ function MovieReviews() {
           </MenuItem>
         ))}
       </Select>
-      <ShowsGallery isReviewsPage showsPerPage={showPerPage} from={from} />
+      <ShowsGallery shows = {searchedShows} isReviewsPage showsPerPage={showPerPage} from={from} />
       <Pagination
         count={count}
         variant="outlined"

@@ -1,9 +1,8 @@
 import React from "react";
-import { connect } from "react-redux";
 import ShowCard from "./ShowCard";
 import { Grid } from "@material-ui/core";
 
-function ShowsGallery({ shows, showsPerPage = 7, isReviewsPage = false, from=0 }) {
+function ShowsGallery({ shows, showsPerPage = 7, isReviewsPage = false, from=0, cardSize}) {
   return (
     <Grid container>
       {shows
@@ -17,7 +16,8 @@ function ShowsGallery({ shows, showsPerPage = 7, isReviewsPage = false, from=0 }
                   key={show.id}
                   title={isReviewsPage && show.name}
                 //   description={isReviewsPage && show.summary}
-				  isReviewsPage= {isReviewsPage}
+				          isReviewsPage= {isReviewsPage}
+                  size={cardSize}
                 />
               </Grid>
             ))
@@ -26,8 +26,6 @@ function ShowsGallery({ shows, showsPerPage = 7, isReviewsPage = false, from=0 }
   );
 }
 
-const mapStateToProps = (state) => ({
-  shows: state.show.shows,
-});
 
-export default connect(mapStateToProps)(ShowsGallery);
+
+export default (ShowsGallery);

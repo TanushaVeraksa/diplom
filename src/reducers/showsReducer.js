@@ -11,7 +11,7 @@ export default (state = initialState, { type, payload }) => {
   switch (type) {
     case SET_SHOW:
       return { ...state, currentShow: payload };
-      case SET_SEARCHED_SHOWS:
+    case SET_SEARCHED_SHOWS:
         return { ...state, searchedShows: payload };
     case SET_SHOWS:
       return { ...state, shows: payload };
