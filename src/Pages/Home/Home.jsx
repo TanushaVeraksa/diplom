@@ -11,6 +11,8 @@ const useStyles = makeStyles({
       display: "flex",
       flexDirection: "column",
       justifyContent: "center", 
+      alignItems: "center",
+      padding: 25,
    }
 })
 

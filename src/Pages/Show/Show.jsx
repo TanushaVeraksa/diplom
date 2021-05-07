@@ -11,13 +11,12 @@ function Show(props) {
       props.getShow(props.match.params.id)
    // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [props.match.params.id])
-   console.log(props);
    return (
       <div>
          {props.show && <ShowCard src={props.show.image ? props.show.image.medium : ""} 
             id = {props.show.id}
             title={props.show.name}
-            description={props.show.summary} 
+            description={props.show.summary.replace(/<[^>]+>/g,'')} 
             />}
       </div>
    )

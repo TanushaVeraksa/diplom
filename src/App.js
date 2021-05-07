@@ -37,7 +37,8 @@ function App() {
   return (
     <div className={classes.root}>
     <Header routes={routes}></Header>
-        <Paper>
+    <div style = {{display: "flex", justifyContent: "center", alignItems:"center"}}>
+        <Paper style = {{width: "80%"}}>
           <Switch>
             {routes.map((elem) => (
               <Route 
@@ -49,6 +50,7 @@ function App() {
             <Route >404 not found</Route>
           </Switch>
       </Paper>
+      </div>
       <Footer></Footer>
   </div>
   );
