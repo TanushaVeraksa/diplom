@@ -2,16 +2,17 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   large: {
-    width: theme.spacing(30),
-    height: theme.spacing(30),
+    width: theme.spacing(25),
+    height: theme.spacing(25),
   },
   flex: {
-      display: "flex",
-      padding: 0,
-  }
+    display: "flex",
+    padding: 0,
+  },
 }));
 
 function TeamMember({ person }) {
@@ -21,19 +22,29 @@ function TeamMember({ person }) {
   console.log(socialForMap);
 
   return (
-    <div>
+    <div style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      flexDirection: "column",
+    }}>
       <Avatar alt={person.name} src={person.avatar} className={classes.large} />
-      <h3>{person.name}</h3>
-      <span>{person.role}</span>
+      <Typography color="textSecondary" variant="h6">
+        {person.name}
+      </Typography>
+      <Typography color="textSecondary" variant="body2">
+        {person.role}
+      </Typography>
+
       <ul className={classes.flex}>
         {socialForMap.map(([name, link]) => (
           <li className={classes.flex}>
             <a target="blank" rel="noopener noreferrer" href={link}>
-              <FontAwesomeIcon
+              <FontAwesomeIcon style={{padding:2}}
                 icon={["fab", name]}
                 size="2x"
                 key={name}
-                color="orange" 
+                color="orange"
               />
             </a>
           </li>

@@ -8,7 +8,7 @@ const footerDate = [
     info: {
       type: "text",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia tempore vitae mollitia nesciunt saepe cupiditate",
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Quia tempore vitae mollitia nesciunt saepe cupiditate",
     },
   },
   {
@@ -70,15 +70,14 @@ const footerDate = [
 
 function Footer() {
   return (
-    <div>
-    <Grid container>
+    <div style={{display:"flex", justifyContent:"center", marginTop: 50, marginLeft: 50}}>
+    <Grid container style={{width:"85%"}}>
       {footerDate.map((elem) => (
         <Grid item md={2} sm={12} key={elem.title}>
           <FooterPage title={elem.title} info={elem.info} />
         </Grid>
       ))}
     </Grid>
-    <p>Copyright 2014 Company name, Designed by Themezy. All rights reserved</p>
     </div>
   );
 }

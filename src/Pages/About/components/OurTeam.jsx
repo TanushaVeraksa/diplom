@@ -67,11 +67,21 @@ const data = [
 export class OurTeam extends Component {
   render() {
     return (
-      <div
+      <div 
+      style={{
+        display: "flex",
+        width: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+        flexWrap: "wrap",
+        paddingBottom: 30,
+      }} >
+        <div
         style={{
           display: "flex",
-          width: "100%",
+          width: "90%",
           justifyContent: "space-between",
+          alignItems: "center",
           flexWrap: "wrap",
         }}
       >
@@ -79,6 +89,8 @@ export class OurTeam extends Component {
           <TeamMember person={elem} key={elem.id} />
         ))}
       </div>
+      </div>
+      
     );
   }
 }

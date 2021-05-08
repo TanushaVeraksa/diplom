@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import MoviePremiere from "../../../components/MoviePremiere";
 import { Grid } from "@material-ui/core";
 
-
-
 export const Premieres = (props) => {
 
     return (

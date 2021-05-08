@@ -1,6 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { withStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+
+const WhiteTextTypography = withStyles({
+  root: {
+    color: "#bdc1c9"
+  }
+})(Typography);
+
 function InfoLinks({ info }) {
   const modofiedInfo = info.map((elem) => {
     if (elem.link.startsWith("/")) {
@@ -16,17 +25,18 @@ function InfoLinks({ info }) {
     }
   });
   return (
-    <ul>
-      {modofiedInfo.map((elem, id) => 
-        <li key={id}>
+    <WhiteTextTypography   variant="caption" display="block"  >
+            {modofiedInfo.map((elem, id) => 
+        <WhiteTextTypography key={id}   variant="caption" display="block"  >
           {elem.inner ? (
-            <Link to={elem.link}>{elem.text}</Link>
+            <Link style={{textDecoration: "none"}} to={elem.link}>{elem.text}</Link>
           ) : (
-            <a target="blank" rel="noopener noreferrer" href={`https://${elem.link}`}>{elem.text}</a>
+            <a style={{textDecoration: "none"}} target="blank" rel="noopener noreferrer" href={`https://${elem.link}`}>{elem.text}</a>
           )}
-        </li>
+        </WhiteTextTypography>
       )}
-    </ul>
+    </WhiteTextTypography>
+
   );
 }
 

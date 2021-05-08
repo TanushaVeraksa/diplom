@@ -16,7 +16,9 @@ function Show(props) {
          {props.show && <ShowCard src={props.show.image ? props.show.image.medium : ""} 
             id = {props.show.id}
             title={props.show.name}
-            description={props.show.summary.replace(/<[^>]+>/g,'')} 
+            description={props.show.summary.replace(/<[^>]+>/g,'')}
+            genres={props.show.genres + " "} 
+            premiered={new Date(props.show.premiered).getFullYear() + ""} 
             />}
       </div>
    )

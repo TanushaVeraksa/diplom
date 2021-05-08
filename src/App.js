@@ -19,16 +19,22 @@ library.add(fab, faCheckSquare, faCoffee);
 const useStyles = makeStyles({
   root:{
     backgroundImage: `url(${background})`,
-    height: "100vh"
+    height: "100%"
   },
+  containerRoot: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  }
 })
 
 const routes = [
   {path: "/", name: "Home", component: Home},
   {path: "/about", name: About.name, component: About},
+  {path: "/movie-reviews", name: MovieReviews.name, component: MovieReviews},
   {path: "/contacts", name: Contacts.name, component: Contacts},
   {path: "/join-us", name: JoinUs.name, component: JoinUs},
-  {path: "/movie-reviews", name: MovieReviews.name, component: MovieReviews},
+
   ];
 
 function App() {
@@ -36,9 +42,11 @@ function App() {
 
   return (
     <div className={classes.root}>
-    <Header routes={routes}></Header>
-    <div style = {{display: "flex", justifyContent: "center", alignItems:"center"}}>
-        <Paper style = {{width: "80%"}}>
+         <div className={classes.containerRoot}>
+          <Header routes={routes}></Header>
+          </div>
+        <div className={classes.containerRoot}>
+        <Paper style = {{width: "73%"}}>
           <Switch>
             {routes.map((elem) => (
               <Route 
