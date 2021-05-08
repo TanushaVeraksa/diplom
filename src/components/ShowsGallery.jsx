@@ -16,7 +16,7 @@ function ShowsGallery({ shows, showsPerPage = 8, isReviewsPage = false, from=0, 
                 id={show.id}
                 key={show.id}
                 title={isReviewsPage && show.name}
-              //   description={isReviewsPage && show.summary}
+                // description={isReview && show.summary}
                 isReviewsPage= {isReviewsPage}
                 size= {cardSize}
               />
