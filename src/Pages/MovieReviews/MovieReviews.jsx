@@ -143,8 +143,10 @@ function MovieReviews() {
         isReviewsPage
         showsPerPage={showPerPage}
         from={from}
+        cardSize={"sm"}
       />
       <Pagination
+        style = {{marginTop: 50}}
         count={count}
         variant="outlined"
         onChange={handleChange}

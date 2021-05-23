@@ -44,15 +44,12 @@ const useStyles = makeStyles({
   },
 });
 
-
-
 function Header(props) {
   const { routes } = props;
   const classes = useStyles();
-
   return (
     <Grid
-      style={{ width: "75%" }}
+      style={{ width: "73%" }}
       container
       justify="space-between"
       alignItems="center"
@@ -69,10 +66,10 @@ function Header(props) {
           </Link>
         </div>
       </Grid>
-      <Grid item xs={5}>
+      <Grid item xs={6}>
         <div className={classes.nav}>
           {routes.map((elem) => (
-                     <Card style={{ padding: 5, paddingLeft: 10, paddingRight: 10 }}>
+              <Card style={{ padding: 5, paddingLeft: 10, paddingRight: 10 }}>
               <Link className={classes.link} to={elem.path} key={elem.name}>
               <Typography className={classes.changeColor} variant="subtitle2"  color="textSecondary">
                 {elem.name}

@@ -1,8 +1,9 @@
 import About from "./About/About";
-import Contacts from "./Contacts/Contacts";
 import Home from "./Home/Home";
-import JoinUs from "./JoinUs/JoinUs";
+import Authorization from "./Authirization/Authorization"
 import MovieReviews from "./MovieReviews/MovieReviews";
-import Show from "./Show/Show"
+import Show from "./Show/Show";
+import PersonalArea from "./PersonalArea/PersonalArea";
+import ErrorAuth from "./ErrorAuth/ErrorAuth";
 
-export {About, Contacts, Home, JoinUs, MovieReviews, Show};
+export {About, Home, MovieReviews, Show, PersonalArea, ErrorAuth, Authorization};
